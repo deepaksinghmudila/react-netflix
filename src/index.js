@@ -1,17 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import Card from './Cards'; 
+import sdata from './Sname';
+//console.log(sdata[0].sname);
+ 
+const cssStyle = {
+  textAlign: 'center',
+  
+}
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  <>   
+    <div className = "heading_style" style={cssStyle}> <h1> Beautiful Pictures </h1>  </div>
+    { sdata.map( (val) => {
+      
+      return (
+        <Card
+          sname={val.sname}
+          imgsrc={val.imgsrc}
+          title={val.title}
+          links={val.links} />
+      );
+    })}
+        
+ </>   
+  ,document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ 
